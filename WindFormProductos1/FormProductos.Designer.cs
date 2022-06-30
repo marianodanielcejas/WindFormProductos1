@@ -35,19 +35,19 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.txtStock = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_Producto = new System.Windows.Forms.DataGridView();
             this.tabC_Producto = new System.Windows.Forms.TabControl();
             this.tabC_Control = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.lblCodigoMov = new System.Windows.Forms.Label();
-            this.lblDescripMov = new System.Windows.Forms.Label();
-            this.lblCantidad = new System.Windows.Forms.Label();
-            this.txtCantidad = new System.Windows.Forms.TextBox();
-            this.rbIngreso = new System.Windows.Forms.RadioButton();
-            this.rbEgreso = new System.Windows.Forms.RadioButton();
-            this.btAceptar = new System.Windows.Forms.Button();
             this.lbl_StockMov = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btAceptar = new System.Windows.Forms.Button();
+            this.rbEgreso = new System.Windows.Forms.RadioButton();
+            this.rbIngreso = new System.Windows.Forms.RadioButton();
+            this.txtCantidad = new System.Windows.Forms.TextBox();
+            this.lblCantidad = new System.Windows.Forms.Label();
+            this.lblDescripMov = new System.Windows.Forms.Label();
+            this.lblCodigoMov = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Producto)).BeginInit();
             this.tabC_Producto.SuspendLayout();
             this.tabC_Control.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -111,13 +111,14 @@
             this.txtStock.Size = new System.Drawing.Size(100, 20);
             this.txtStock.TabIndex = 6;
             // 
-            // dataGridView1
+            // dgv_Producto
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(157, 273);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(407, 150);
-            this.dataGridView1.TabIndex = 7;
+            this.dgv_Producto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Producto.Location = new System.Drawing.Point(157, 273);
+            this.dgv_Producto.Name = "dgv_Producto";
+            this.dgv_Producto.Size = new System.Drawing.Size(438, 150);
+            this.dgv_Producto.TabIndex = 7;
+            this.dgv_Producto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Producto_CellClick);
             // 
             // tabC_Producto
             // 
@@ -164,50 +165,24 @@
             this.tabPage2.Text = "Movimiento de productos";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // lblCodigoMov
+            // lbl_StockMov
             // 
-            this.lblCodigoMov.AutoSize = true;
-            this.lblCodigoMov.Location = new System.Drawing.Point(56, 22);
-            this.lblCodigoMov.Name = "lblCodigoMov";
-            this.lblCodigoMov.Size = new System.Drawing.Size(35, 13);
-            this.lblCodigoMov.TabIndex = 0;
-            this.lblCodigoMov.Text = "label1";
+            this.lbl_StockMov.AutoSize = true;
+            this.lbl_StockMov.Location = new System.Drawing.Point(56, 84);
+            this.lbl_StockMov.Name = "lbl_StockMov";
+            this.lbl_StockMov.Size = new System.Drawing.Size(35, 13);
+            this.lbl_StockMov.TabIndex = 7;
+            this.lbl_StockMov.Text = "label2";
             // 
-            // lblDescripMov
+            // btAceptar
             // 
-            this.lblDescripMov.AutoSize = true;
-            this.lblDescripMov.Location = new System.Drawing.Point(56, 52);
-            this.lblDescripMov.Name = "lblDescripMov";
-            this.lblDescripMov.Size = new System.Drawing.Size(35, 13);
-            this.lblDescripMov.TabIndex = 1;
-            this.lblDescripMov.Text = "label2";
-            // 
-            // lblCantidad
-            // 
-            this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Location = new System.Drawing.Point(56, 116);
-            this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(49, 13);
-            this.lblCantidad.TabIndex = 2;
-            this.lblCantidad.Text = "Cantidad";
-            // 
-            // txtCantidad
-            // 
-            this.txtCantidad.Location = new System.Drawing.Point(128, 109);
-            this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(100, 20);
-            this.txtCantidad.TabIndex = 3;
-            // 
-            // rbIngreso
-            // 
-            this.rbIngreso.AutoSize = true;
-            this.rbIngreso.Location = new System.Drawing.Point(258, 52);
-            this.rbIngreso.Name = "rbIngreso";
-            this.rbIngreso.Size = new System.Drawing.Size(60, 17);
-            this.rbIngreso.TabIndex = 4;
-            this.rbIngreso.TabStop = true;
-            this.rbIngreso.Text = "Ingreso";
-            this.rbIngreso.UseVisualStyleBackColor = true;
+            this.btAceptar.Location = new System.Drawing.Point(349, 79);
+            this.btAceptar.Name = "btAceptar";
+            this.btAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btAceptar.TabIndex = 6;
+            this.btAceptar.Text = "Aceptar";
+            this.btAceptar.UseVisualStyleBackColor = true;
+            this.btAceptar.Click += new System.EventHandler(this.btAceptar_Click);
             // 
             // rbEgreso
             // 
@@ -220,24 +195,50 @@
             this.rbEgreso.Text = "Egreso";
             this.rbEgreso.UseVisualStyleBackColor = true;
             // 
-            // btAceptar
+            // rbIngreso
             // 
-            this.btAceptar.Location = new System.Drawing.Point(349, 79);
-            this.btAceptar.Name = "btAceptar";
-            this.btAceptar.Size = new System.Drawing.Size(75, 23);
-            this.btAceptar.TabIndex = 6;
-            this.btAceptar.Text = "Aceptar";
-            this.btAceptar.UseVisualStyleBackColor = true;
-            this.btAceptar.Click += new System.EventHandler(this.btAceptar_Click);
+            this.rbIngreso.AutoSize = true;
+            this.rbIngreso.Location = new System.Drawing.Point(258, 52);
+            this.rbIngreso.Name = "rbIngreso";
+            this.rbIngreso.Size = new System.Drawing.Size(60, 17);
+            this.rbIngreso.TabIndex = 4;
+            this.rbIngreso.TabStop = true;
+            this.rbIngreso.Text = "Ingreso";
+            this.rbIngreso.UseVisualStyleBackColor = true;
             // 
-            // lbl_StockMov
+            // txtCantidad
             // 
-            this.lbl_StockMov.AutoSize = true;
-            this.lbl_StockMov.Location = new System.Drawing.Point(56, 84);
-            this.lbl_StockMov.Name = "lbl_StockMov";
-            this.lbl_StockMov.Size = new System.Drawing.Size(35, 13);
-            this.lbl_StockMov.TabIndex = 7;
-            this.lbl_StockMov.Text = "label2";
+            this.txtCantidad.Location = new System.Drawing.Point(128, 109);
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.Size = new System.Drawing.Size(100, 20);
+            this.txtCantidad.TabIndex = 3;
+            // 
+            // lblCantidad
+            // 
+            this.lblCantidad.AutoSize = true;
+            this.lblCantidad.Location = new System.Drawing.Point(56, 116);
+            this.lblCantidad.Name = "lblCantidad";
+            this.lblCantidad.Size = new System.Drawing.Size(49, 13);
+            this.lblCantidad.TabIndex = 2;
+            this.lblCantidad.Text = "Cantidad";
+            // 
+            // lblDescripMov
+            // 
+            this.lblDescripMov.AutoSize = true;
+            this.lblDescripMov.Location = new System.Drawing.Point(56, 52);
+            this.lblDescripMov.Name = "lblDescripMov";
+            this.lblDescripMov.Size = new System.Drawing.Size(35, 13);
+            this.lblDescripMov.TabIndex = 1;
+            this.lblDescripMov.Text = "label2";
+            // 
+            // lblCodigoMov
+            // 
+            this.lblCodigoMov.AutoSize = true;
+            this.lblCodigoMov.Location = new System.Drawing.Point(56, 22);
+            this.lblCodigoMov.Name = "lblCodigoMov";
+            this.lblCodigoMov.Size = new System.Drawing.Size(35, 13);
+            this.lblCodigoMov.TabIndex = 0;
+            this.lblCodigoMov.Text = "label1";
             // 
             // FormProductos
             // 
@@ -245,10 +246,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabC_Producto);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgv_Producto);
             this.Name = "FormProductos";
             this.Text = "FormProductos";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Producto)).EndInit();
             this.tabC_Producto.ResumeLayout(false);
             this.tabC_Control.ResumeLayout(false);
             this.tabC_Control.PerformLayout();
@@ -267,7 +268,7 @@
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.TextBox txtStock;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_Producto;
         private System.Windows.Forms.TabControl tabC_Producto;
         private System.Windows.Forms.TabPage tabC_Control;
         private System.Windows.Forms.TabPage tabPage2;

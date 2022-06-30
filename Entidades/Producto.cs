@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace Entidades
 {
     public class Producto
     {
+       
         #region Atributos
         private int codigo;
         private string descripcion;
@@ -34,17 +36,21 @@ namespace Entidades
         #region Constructores
         public Producto()
         {
-
+           
         }
-        public Producto(int cod, string desc)
+        public Producto(int cod, string desc, int st)
         {
+            
             codigo = cod;
             descripcion = desc;
-            stock = 0;
+            stock = st;
+            
+            
         }
         #endregion
 
         #region Metodos
+       
         public void ingreso(int cant)
         {
             stock = stock + cant;
@@ -54,6 +60,9 @@ namespace Entidades
         {
             stock = stock - cant;
         }
+
+        
         #endregion 
+
     }
 }
